@@ -79,7 +79,7 @@ public class MultiStompSinkConfiguration extends AbstractWebSocketMessageBrokerC
 
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
-        Boolean withSockJS = properties.getWithSockJS();
+        Boolean withSockJS = properties.getWithsockjs();
         if (withSockJS) {
             registry.addEndpoint(properties.getEndpoint()).setAllowedOrigins("*").withSockJS();
         }

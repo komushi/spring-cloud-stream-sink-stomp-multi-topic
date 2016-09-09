@@ -11,17 +11,20 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 public class MultiStompSinkProperties {
 
 
-    public static final String DEFAULT_ENDPOINT = "stomp";
-
+    /**
+     * The Websocket Path on which a StompSink consumer needs to connect
+     */
+    private String endpoint = "stomp";
 
     /**
-     * the websocketPath on which a StompSink consumer needs to connect. Default is <tt>/stomp</tt>
+     * The topic path to subscribe/publish
      */
-    String endpoint = DEFAULT_ENDPOINT;
+    private String topicPath;
 
-    String topicPath;
-
-    Boolean withSockJS = false;
+    /**
+     * Whether to use SockJS
+     */
+    private Boolean withsockjs = false;
 
     public String getEndpoint() {
         return endpoint;
@@ -39,12 +42,12 @@ public class MultiStompSinkProperties {
         this.topicPath = topicPath;
     }
 
-    public Boolean getWithSockJS() {
-        return withSockJS;
+    public Boolean getWithsockjs() {
+        return withsockjs;
     }
 
-    public void setWithSockJS(Boolean withSockJS) {
-        this.withSockJS = withSockJS;
+    public void setWithsockjs(Boolean withSockJS) {
+        this.withsockjs = withSockJS;
     }
 
 }
