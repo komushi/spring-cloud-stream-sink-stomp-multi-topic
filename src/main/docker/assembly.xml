@@ -6,7 +6,7 @@
 	<dependencySets>
 		<dependencySet>
 			<includes>
-				<include>org.springframework.boot:spring-cloud-stream-sink-stomp-multi-topic</include>
+				<include>io.pivotal.spring.cloud.stream.sink:spring-cloud-stream-sink-stomp-multi-topic</include>
 			</includes>
 			<outputDirectory>.</outputDirectory>
 			<outputFileNameMapping>spring-cloud-stream-sink-stomp-multi-topic.jar</outputFileNameMapping>

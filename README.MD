@@ -53,3 +53,27 @@ curl -H "Content-Type: application/json" -X POST -d'[{"rank":1,"from":"C167.155"
 
 You can subscribe http://localhost:8080/stomp at /topic/httpjson to retrieve the inbound messages.
 
+# II. Another deployment option: docker image
+
+## 1. Build docker image by maven
+```
+mvn clean package docker:build
+```
+
+if necessay push to docker hub
+
+```
+mvn docker:push -Ddocker.username=[provide your username] -Ddocker.password=[provide password]
+```
+
+##2. Run the image
+
+Since we use docker container here and the Spring Cloud Stream App deault port is 8080 so the --server.port(the container port) parameter does not need to be specified for docker deployment.
+
+```
+docker run -p <host_port>:<container_port> komushi/spring-cloud-stream-sink-stomp-multi-topic <app_args>
+```
+
+```
+docker run -p 9210:8080 komushi/spring-cloud-stream-sink-stomp-multi-topic --stomp.withsockjs=true --stomp.topic-path=/dropoffDistrictCode --spring.cloud.stream.bindings.input.destination=transform_geotuple --spring.cloud.stream.bindings.input.group=1 --spring.rabbitmq.host=192.168.11.111 --spring.rabbitmq.port=5672 --spring.rabbitmq.username=test --spring.rabbitmq.password=test
+```

@@ -26,7 +26,7 @@
         <configuration>
           <images>
             <image>
-              <name>${docker.image}</name>
+              <name>komushi/${project.artifactId}</name>
               <build>
                 <from>anapsix/alpine-java:8</from>
                 <volumes>
@@ -36,7 +36,7 @@
                   <exec>
                     <arg>java</arg>
                     <arg>-jar</arg>
-                    <arg>/maven/demo.jar</arg>
+                    <arg>/maven/${project.artifactId}.jar</arg>
                   </exec>
                 </entryPoint>
                 <assembly>
@@ -80,7 +80,6 @@
     </dependencies>
   </dependencyManagement>
   <properties>
-    <docker.image>${project.artifactId}-app</docker.image>
     <java.version>1.8</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
